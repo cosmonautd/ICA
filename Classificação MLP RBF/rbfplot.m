@@ -39,9 +39,10 @@ plot(rangerbf1, meanrbf1, 'b--o', 'MarkerFaceColor','b');
 hold on
 plot(rangerbf2, meanrbf2, 'r--o', 'MarkerFaceColor','r');
 
-xlabel('Número de neurônios nas camadas ocultas');
-ylabel('Taxa de acerto média K-fold');
-legend('RBF com raio receptivo = 1.0', 'RBF com raio receptivo = 2.0', 'Location','southeast')
+set(gca, 'FontSize', 16)
+xlabel('Número de neurônios nas camadas ocultas', 'FontSize', 16);
+ylabel('Taxa de acurácia no K-fold', 'FontSize', 16);
+legend({'RBF com raio receptivo r = 1', 'RBF com raio receptivo r = 2'}, 'Location','southeast', 'FontSize', 16)
 ylim([0 1])
 
 saveTightFigure(hFig, 'rbf-graph.pdf')

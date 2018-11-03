@@ -39,9 +39,10 @@ plot(rangemlp1, meanmlp1, 'b--o', 'MarkerFaceColor','b');
 hold on
 plot(rangemlp2, meanmlp2, 'r--o', 'MarkerFaceColor','r');
 
-xlabel('Número de neurônios nas camadas ocultas');
-ylabel('Taxa de acerto média K-fold');
-legend('1 camada oculta', '2 camadas ocultas', 'Location','southeast')
+set(gca, 'FontSize', 16)
+xlabel('Número de neurônios nas camadas ocultas', 'FontSize', 16);
+ylabel('Taxa de acurácia no K-fold', 'FontSize', 16);
+legend({'MLP com 1 camada oculta', 'MLP com 2 camadas ocultas'}, 'Location','southeast', 'FontSize', 14);
 ylim([0 1])
 
 saveTightFigure(hFig, 'mlp-graph.pdf')

@@ -92,6 +92,9 @@ function [success, total] = rbf10fold(Xraw, Yraw, maxneurons)
         result = (r1==r2);
         success(i) = sum(result)/foldsize;
 
+        % Grava a matriz de confusao do fold em um arquivo csv caso 
+        % o modelo seja RBF com uma camada oculta e 160 neuronios
+
         if maxneurons == 160
             confusionmatrix = zeros(outputsize);
             for j = 1:length(r1)
@@ -110,6 +113,9 @@ function [success, total] = rbf10fold(Xraw, Yraw, maxneurons)
         result = (r1==r2);
         total(i) = sum(result)/samples;
 
+        % Grava a matriz de confusao total em um arquivo csv caso 
+        % o modelo seja RBF com uma camada oculta e 160 neuronios
+
         if maxneurons == 160
             confusionmatrix = zeros(outputsize);
             for j = 1:length(r1)
@@ -120,6 +126,8 @@ function [success, total] = rbf10fold(Xraw, Yraw, maxneurons)
 
     end
 
+    % Grava as taxas de acuracia total e do fold em um arquivo csv caso 
+    % o modelo seja RBF com uma camada oculta e 160 neuronios
     if maxneurons == 160
         csvwrite('success-rbf-160.csv', success);
         csvwrite('total-rbf-160.csv', total);

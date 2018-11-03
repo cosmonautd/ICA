@@ -97,6 +97,9 @@ function [success, total] = mlp10fold(Xraw, Yraw, layers)
         result = (r1==r2);
         success(i) = sum(result)/foldsize;
 
+        % Grava a matriz de confusao do fold em um arquivo csv caso 
+        % o modelo seja MLP com uma camada oculta e 200 neuronios
+
         if layers == [200]
             confusionmatrix = zeros(outputsize);
             for j = 1:length(r1)
@@ -115,6 +118,8 @@ function [success, total] = mlp10fold(Xraw, Yraw, layers)
         result = (r1==r2);
         total(i) = sum(result)/samples;
 
+        % Grava a matriz de confusao total em um arquivo csv caso 
+        % o modelo seja MLP com uma camada oculta e 200 neuronios
         if layers == [200]
             confusionmatrix = zeros(outputsize);
             for j = 1:length(r1)
@@ -124,6 +129,8 @@ function [success, total] = mlp10fold(Xraw, Yraw, layers)
         end
     end
 
+    % Grava as taxas de acuracia do fold e totais caso o modelo
+    % seja MLP com uma camada oculta de 200 neuronios
     if layers == [200]
         csvwrite('success-mlp-200.csv', success);
         csvwrite('total-mlp-200.csv', total);
