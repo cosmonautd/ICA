@@ -1,5 +1,5 @@
-mlpdata1 = csvread('mlpdata-1L.csv');
-rbfdata2 = csvread('rbfdata-2S.csv');
+mlpdata1 = csvread('output/mlpdata-1L.csv');
+rbfdata2 = csvread('output/rbfdata-2S.csv');
 
 rangemlp1 = mlpdata1(1,:);
 minmlp1   = mlpdata1(2,:);
@@ -21,9 +21,9 @@ hFig = figure(1);
 set(hFig, 'Position', [450 200 1000 600])
 axis tight
 
-plot(rangemlp1, meanmlp1, 'b--o', 'MarkerFaceColor','b');
+plot(rangemlp1, meanmlp1, 'b--s', 'MarkerFaceColor','b');
 hold on
-plot(rangerbf2, meanrbf2, 'r--o', 'MarkerFaceColor','r');
+plot(rangerbf2, meanrbf2, 'r--d', 'MarkerFaceColor','r');
 
 set(gca, 'FontSize', 16)
 xlabel('Número de neurônios nas camadas ocultas', 'FontSize', 16);
@@ -31,4 +31,4 @@ ylabel('Taxa de acurácia no K-fold', 'FontSize', 16);
 legend({'MLP com 1 camada oculta', 'RBF com raio receptivo r = 2'}, 'Location','southeast', 'FontSize', 16)
 ylim([0 1])
 
-saveTightFigure(hFig, 'mlp-rbf-graph.pdf')
+saveTightFigure(hFig, 'figuras/mlp-rbf-graph.pdf')
